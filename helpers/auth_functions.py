@@ -7,7 +7,7 @@ import bcrypt
 from models.validations import Token, TokenData, User
 from config import options_keys
 
-from .db.db_interaction import search_user
+from .db import search_user
 
 # Configure JWT settings
 SECRET_KEY = options_keys.secret_jwt
