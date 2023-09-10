@@ -1,0 +1,9 @@
+fastapi
+python-jose
+uvicorn
+pydantic
+sqlalchemy
+sqlalchemy-utils
+mysql-connector-python
+bcrypt
+python-multipart
