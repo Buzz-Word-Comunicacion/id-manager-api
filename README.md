@@ -12,7 +12,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/marturojt/id-manager-api">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo-ai-id-manager.png" alt="Logo" width="180" height="180">
   </a>
 
   <h1 align="center">Identity manager API [Fast API]</h1>
