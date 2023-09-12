@@ -7,3 +7,5 @@ sqlalchemy-utils
 mysql-connector-python
 bcrypt
 python-multipart
+opencv-python
+rembg

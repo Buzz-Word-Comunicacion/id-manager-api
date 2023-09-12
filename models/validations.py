@@ -16,3 +16,7 @@ class User(BaseModel):
     username: str 
     email: Optional[str] = None
     disabled: Optional[bool] = None
+
+# class to have a base64 image as a string (Same for input and output)
+class ImgBase64(BaseModel):
+    image_b64: str
