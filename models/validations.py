@@ -20,3 +20,11 @@ class User(BaseModel):
 # class to have a base64 image as a string (Same for input and output)
 class ImgBase64(BaseModel):
     image_b64: str
+
+# class to give a boolean response for faceID
+class FaceIDResponse(BaseModel):
+    isSamePerson: bool
+
+class FaceIDInput(BaseModel):
+    person_1: str
+    person_2: str 

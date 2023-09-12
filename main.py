@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Depends
 from fastapi.security import OAuth2PasswordRequestForm
 
-from models.validations import Token, TokenData, User, ImgBase64
-from helpers import validate_user_login, user_authentication, id_image_enhacer, id_remove_backgroud
+from models.validations import Token, TokenData, User, ImgBase64, FaceIDResponse, FaceIDInput
+from helpers import validate_user_login, user_authentication, id_image_enhacer, id_remove_backgroud, face_compare
 
 
 
@@ -45,3 +45,13 @@ async def remove_background(image: ImgBase64, authenticate: TokenData = Depends(
     )
 async def photo_enhacer(image: ImgBase64, authenticate: TokenData = Depends(user_authentication)):
     return id_image_enhacer(image.image_b64)
+
+
+@app.post(
+    "/comparefaces",
+    tags=["FaceID"],
+    summary="Compare two faces and return if they are the same person",
+    response_model=FaceIDResponse
+    )
+async def faceid_match(images: FaceIDInput, authenticate: TokenData = Depends(user_authentication)):
+    return face_compare(images.person_1, images.person_2)

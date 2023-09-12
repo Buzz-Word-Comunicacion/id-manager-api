@@ -124,10 +124,19 @@ In the project its a file named config.py.dist, you will need to rename or copy 
    ```sh
    git clone https://github.com/marturojt/id-manager-api
    ```
+
 2. Install NPM packages
+   Before install the packages create a virtual environment `python -m venv venv_id_manager` and then activate it `venv_id_manager/Scripts/activate`
+
+   Once the virutal environment is active, run the following command to install all the dependencies:
+  
    ```sh
    pip install -r pip_requirements.txt
    ```
+
+   IMPORTANT: To use the face-recognition pip package, you will need `dlib` which is not easy to install in a windows environment. This is the oficial documentation, and it is recommended to read it to make it work in windows:
+   - [https://github.com/ageitgey/face_recognition/issues/175](https://github.com/ageitgey/face_recognition/issues/175)
+  
 3. Copy `config.py.dist` to `config.py` and enter your api keys and the database credentials
    ```python
     class DBOptions:
@@ -177,8 +186,9 @@ In the project its a file named config.py.dist, you will need to rename or copy 
 ## Roadmap
 
 - [x] Create a basic fastapi app with authorization via JWT
-- [ ] Add the ID background removal method
-- [ ] Add the Face ID (face comparition) method
+- [x] Add the ID background removal method
+- [x] Add the Face ID (face comparition) method
+- [ ] Refactor the code to remove dependencies
 
 
 

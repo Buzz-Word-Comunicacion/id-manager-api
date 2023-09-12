@@ -161,3 +161,4 @@ cython_debug/
 
 
 config.py
+venv_id_manager/

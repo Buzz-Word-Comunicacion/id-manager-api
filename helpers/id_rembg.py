@@ -99,7 +99,7 @@ def id_image_enhacer(image_b64: str) -> ImgBase64:
     if not isBase64(image_b64):
         raise HTTPException(
             status_code=500,
-            detail="Invalid image format, must be base64 encoded string"
+            detail="Invalid image format, must be a base64 encoded string"
         )
 
     # Get the image without background
@@ -115,12 +115,13 @@ def id_image_enhacer(image_b64: str) -> ImgBase64:
     id_image = ImgBase64(image_b64 = image_string)
     return id_image
 
+# Function to only remove the background from the image
 def id_remove_backgroud(image_b64: str) -> ImgBase64:
     # First we validate if the input its a valid Base64 encoded image
     if not isBase64(image_b64):
         raise HTTPException(
             status_code=500,
-            detail="Invalid image format, must be base64 encoded string"
+            detail="Invalid image format, must be a base64 encoded string"
         )
 
     # Get the image without background
