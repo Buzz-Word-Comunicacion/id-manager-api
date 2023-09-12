@@ -2,12 +2,16 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import database_exists, create_database
+import configparser
+
 
 from models.models import Base, Users, hash_password        # database models
-from config import db_options                               # database credentials
+
+config = configparser.ConfigParser()
+config.read("config.ini")
 
 # Database connection settings
-connection_string = f"mysql+mysqlconnector://{db_options.user}:{db_options.password}@{db_options.host}/{db_options.database}"
+connection_string = f'mysql+mysqlconnector://{config["database"]["username"]}:{config["database"]["password"]}@{config["database"]["host"]}/{config["database"]["database"]}'
 engine = create_engine(connection_string)
 
 # Create database if it does not exist.

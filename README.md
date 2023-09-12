@@ -137,46 +137,19 @@ In the project its a file named config.py.dist, you will need to rename or copy 
    IMPORTANT: To use the face-recognition pip package, you will need `dlib` which is not easy to install in a windows environment. This is the oficial documentation, and it is recommended to read it to make it work in windows:
    - [https://github.com/ageitgey/face_recognition/issues/175](https://github.com/ageitgey/face_recognition/issues/175)
   
-3. Copy `config.py.dist` to `config.py` and enter your api keys and the database credentials
-   ```python
-    class DBOptions:
-        """
-        Database connection options class
-        """
+3. Copy `config.ini.dist` to `config.ini` and enter your api keys and the database credentials
+   ```ini
+    [database]
+    host = YOUR_HOST
+    port = YOUR_PORT
+    database = YOUR_DATABASE
+    username = YOUR_USERNAME
+    password = YOUR_PASSWORD
 
-        def __init__(self, user: str, password: str, host: str, database: str):
-            self.user = user
-            self.password = password
-            self.host = host
-            self.database = database
-
-
-    # Database connection options definitions
-    db_options = DBOptions(
-                            user='XXXX YOUR USERNAME XXXX',
-                            password='XXXX YOUR PASSWORD XXXX',
-                            host='XXXX YOUR HOST XXXX',
-                            database='XXXX YOUR DATABASE XXXX'
-                            )
-
-
-    class OptionsKeys:
-        """
-        Keys used by main script details class
-        """
-
-        def __init__(self, secret_jwt: str, algorithm_jwt: str, access_token_expiration: int):
-            self.secret_jwt = secret_jwt
-            self.algorithm_jwt = algorithm_jwt
-            self.access_token_expiration = access_token_expiration
-
-
-    # Optioons keys
-    options_keys = OptionsKeys(
-                            secret_jwt='XXXX YOUR SECRET KEY XXXX',
-                            algorithm_jwt='HS256',
-                            access_token_expiration=5
-                            )
+    [misc-keys]
+    secret-jwt = YOUR_SECRET_JWT_STRING
+    algorithm = YOUR_ALGORITHM
+    access-token-expiration = YOUR_ACCESS_TOKEN_EXPIRATION_TIME_IN_MINUTES
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

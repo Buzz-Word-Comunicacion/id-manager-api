@@ -3,16 +3,20 @@ from fastapi.security import OAuth2PasswordBearer
 from jose import jwt, JWTError
 from datetime import datetime, timedelta
 import bcrypt
+import configparser
 
 from models.validations import Token, TokenData, User
-from config import options_keys
 
 from .db import search_user
 
+
+config = configparser.ConfigParser()
+config.read("config.ini")
+
 # Configure JWT settings
-SECRET_KEY = options_keys.secret_jwt
-ALGORITHM = options_keys.algorithm_jwt
-ACCESS_TOKEN_EXPIRE_MINUTES = options_keys.access_token_expiration
+SECRET_KEY = config["misc-keys"]["secret-jwt"]
+ALGORITHM = config["misc-keys"]["algorithm"]
+ACCESS_TOKEN_EXPIRE_MINUTES = int(config["misc-keys"]["access-token-expiration"])
 
 # OAuth2 password bearer scheme
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
