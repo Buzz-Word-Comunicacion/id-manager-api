@@ -26,14 +26,6 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
 
 ## PROTECTED ROUTES ##
 
-# Test protected route
-@app.get("/test", tags=["Test protected route"], summary="Test protected route")
-async def test(authenticate: TokenData = Depends(user_authentication)):
-    return authenticate
-
-@app.get("/test", tags=["Test protected route"], summary="Test protected route 2")
-async def test(authenticate: TokenData = Depends(user_authentication)):
-    return authenticate 
 
 @app.post(
     "/removebg",
