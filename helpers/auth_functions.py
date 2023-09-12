@@ -47,7 +47,7 @@ def validate_user_login(username: str, password: str) -> Token:
     responseJSON = Token(
         access_token= access_token,
         token_type= "bearer",
-        expires= access_token_expires
+        expires= access_token_expires.total_seconds()
     )
 
     return responseJSON
