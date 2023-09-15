@@ -5,7 +5,6 @@ from datetime import datetime, timedelta
 class Token(BaseModel):
     access_token: str
     token_type: str
-    expires: int
 
 class TokenData(BaseModel):
     username: str | None = None
