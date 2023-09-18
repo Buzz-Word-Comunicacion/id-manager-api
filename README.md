@@ -137,6 +137,8 @@ In the project its a file named config.py.dist, you will need to rename or copy 
    IMPORTANT: To use the face-recognition pip package, you will need `dlib` which is not easy to install in a windows environment. This is the oficial documentation, and it is recommended to read it to make it work in windows:
    - [https://github.com/ageitgey/face_recognition/issues/175](https://github.com/ageitgey/face_recognition/issues/175)
   
+   IMPORTANT NOTE: If you are using macos you need to install "xz" `brew install xz`
+   
 3. Copy `config.ini.dist` to `config.ini` and enter your api keys and the database credentials
    ```ini
     [database]
