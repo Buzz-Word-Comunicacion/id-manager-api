@@ -15,7 +15,7 @@
     <img src="images/logo-ai-id-manager.png" alt="Logo" width="180" height="180">
   </a>
 
-  <h1 align="center">Identity manager API [Fast API]</h1>
+  <h1 align="center">Identity manager API [Fast API] =P</h1>
 
   <p align="justify">
     <strong>ID Image Processor API</strong> is a powerful tool designed to streamline and enhance your ID image processing tasks. Leveraging the latest in web technologies, this API is built using FastAPI and employs JWT for secure authentication. With it, you can effortlessly perform two key image processing tasks: background removal from a physical ID photo and face comparison.
