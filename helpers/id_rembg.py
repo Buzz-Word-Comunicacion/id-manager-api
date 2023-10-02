@@ -46,6 +46,7 @@ def perspective_transform(pil_image: Image) -> str:
     
     # Transform the image to a numpy array
     pil_image_bytes = np.array(pil_image)
+    pil_image_bytes = cv2.cvtColor(pil_image_bytes, cv2.COLOR_RGB2BGR)
     _, image_encoded = cv2.imencode(".png", pil_image_bytes)
 
     # Begin the operations with opencv (CV2)
@@ -90,7 +91,6 @@ def perspective_transform(pil_image: Image) -> str:
     base64_image = base64.b64encode(encoded_image).decode("utf-8")
 
     return base64_image
-
 
 # Main function to enhace the ID image removing background and perspective transform
 def id_image_enhacer(image_b64: str) -> ImgBase64:
