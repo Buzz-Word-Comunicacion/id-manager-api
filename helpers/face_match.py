@@ -26,14 +26,13 @@ def readb64(uri: str):
 
     # Convert to numpy array
     image_arr = io.BytesIO(image_data)
-    print(type(image_arr))
+    # print(type(image_arr))
 
     # Create an image object from the decoded data (PIL)
     # image_arr = Image.open(io.BytesIO(image_data))
 
     # Return the converted image
     return image_arr
-
 
 # Compare two images and return if they are the same person
 def face_compare(img1: str, img2: str) -> FaceIDResponse:
