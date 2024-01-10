@@ -26,7 +26,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
 
 ## PROTECTED ROUTES ##
 
-
+# Remove background from image
 @app.post(
     "/removebg",
     tags=["Physical ID photo enhacer"],
@@ -36,7 +36,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
 async def remove_background(image: ImgBase64, authenticate: TokenData = Depends(user_authentication)):
     return id_remove_backgroud(image.image_b64)
 
-
+# Correct perspective from image and remove background
 @app.post(
     "/perspectiveandbg",
     tags=["Physical ID photo enhacer"],
@@ -46,7 +46,7 @@ async def remove_background(image: ImgBase64, authenticate: TokenData = Depends(
 async def photo_enhacer(image: ImgBase64, authenticate: TokenData = Depends(user_authentication)):
     return id_image_enhacer(image.image_b64)
 
-
+# Compare faces (FaceID)
 @app.post(
     "/comparefaces",
     tags=["FaceID"],
