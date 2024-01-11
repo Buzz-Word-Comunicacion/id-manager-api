@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, conint, constr
 from typing import Optional
 from datetime import datetime, timedelta
 
@@ -26,4 +26,21 @@ class FaceIDResponse(BaseModel):
 
 class FaceIDInput(BaseModel):
     person_1: str
-    person_2: str 
+    person_2: str
+
+class CrIdScraperResponse(BaseModel):
+    cedula: constr(min_length=None, to_upper=True)
+    nombre: constr(min_length=None, to_upper=True)
+    primerApellido: constr(min_length=None, to_upper=True)
+    segundoApellido: constr(min_length=None, to_upper=True)
+    conocidoComo: constr(min_length=None, to_upper=True)
+    fechaNacimiento: constr(min_length=None, to_upper=True)
+    lugarNacimiento: constr(min_length=None, to_upper=True)
+    nacionalidad: constr(min_length=None, to_upper=True)
+    nombrePadre: constr(min_length=None, to_upper=True)
+    idPadre: constr(min_length=None, to_upper=True)
+    nombreMadre: constr(min_length=None, to_upper=True)
+    idMadre: constr(min_length=None, to_upper=True)
+    empadronado: constr(min_length=None, to_upper=True)
+    fallecido: constr(min_length=None, to_upper=True)
+    marginal: constr(min_length=None, to_upper=True)

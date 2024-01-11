@@ -16,3 +16,4 @@ asyncer
 filetype
 gradio
 watchdog
+selenium

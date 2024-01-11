@@ -4,7 +4,7 @@ from sqlalchemy_utils import database_exists, create_database
 from contextlib import contextmanager
 import configparser
 
-from models.models import Base, Users, hash_password        # database models
+from models.models import Base, Users, hash_password, ScrapData      # database models
 
 config = configparser.ConfigParser()
 config.read("config.ini")
@@ -53,3 +53,26 @@ def search_user(username):
         user = session.query(Users).filter(
             Users.username == username).first()
         return user
+
+# Scrap data operations
+def insert_scrap_data(data):
+    with session_scope() as session:
+        scrap_data = ScrapData(
+            cedula=data['cedula'],
+            nombre=data['nombre'],
+            primerApellido=data['primerApellido'],
+            segundoApellido=data['segundoApellido'],
+            conocidoComo=data['conocidoComo'],
+            fechaNacimiento=data['fechaNacimiento'],
+            lugarNacimiento=data['lugarNacimiento'],
+            nacionalidad=data['nacionalidad'],
+            nombrePadre=data['nombrePadre'],
+            idPadre=data['idPadre'],
+            nombreMadre=data['nombreMadre'],
+            idMadre=data['idMadre'],
+            empadronado=data['empadronado'],
+            fallecido=data['fallecido'],
+            marginal=data['marginal']
+        )
+        session.add_all([scrap_data])
+        session.commit()
