@@ -11,6 +11,7 @@ from .db import insert_scrap_data
 def obtenerDriver():
     #Definición del driver
     options = webdriver.ChromeOptions()
+    chrome_options.addArguments("--no-sandbox")
     options.add_argument('headless')
     driver = webdriver.Chrome(options=options)
     return driver
