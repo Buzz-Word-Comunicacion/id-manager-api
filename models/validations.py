@@ -44,3 +44,23 @@ class CrIdScraperResponse(BaseModel):
     empadronado: constr(min_length=None, to_upper=True)
     fallecido: constr(min_length=None, to_upper=True)
     marginal: constr(min_length=None, to_upper=True)
+
+
+class ImageCategoryEnum(str, Enum):
+    tecnologia = "tecnologia"
+    cultura = "cultura"
+    deporte = "deporte"
+    arte = "arte"
+    minimalismo = "minimalismo"
+    astronomia = "astronomia"
+    videojuegos = "videojuegos"
+
+class ImageCategory(BaseModel):
+    category: ImageCategoryEnum
+
+
+class ImageResponse(BaseModel):
+    image1: str
+    image2: str
+    image3: str
+    image4: str

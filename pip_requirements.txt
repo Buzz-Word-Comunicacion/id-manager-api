@@ -17,3 +17,12 @@ filetype
 gradio
 watchdog
 selenium
+diffusers
+transformers
+accelerate
+huggingface_hub
+torch
+torchvision
+torchaudio
+pillow
+tensorflow
