@@ -1,6 +1,7 @@
 from pydantic import BaseModel, conint, constr
 from typing import Optional
 from datetime import datetime, timedelta
+from enum import Enum
 
 class Token(BaseModel):
     access_token: str
