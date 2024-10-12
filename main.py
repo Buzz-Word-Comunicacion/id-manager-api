@@ -1,8 +1,10 @@
 from fastapi import FastAPI, Depends
 from fastapi.security import OAuth2PasswordRequestForm
 
-from models.validations import Token, TokenData, User, ImgBase64, FaceIDResponse, FaceIDInput, CrIdScraperResponse, ImageCategory, ImageResponse
-from helpers import validate_user_login, user_authentication, id_image_enhacer, id_remove_backgroud, face_compare, scrapingCR, generacion_imagenes
+# from models.validations import Token, TokenData, User, ImgBase64, FaceIDResponse, FaceIDInput, CrIdScraperResponse, ImageCategory, ImageResponse
+# from helpers import validate_user_login, user_authentication, id_image_enhacer, id_remove_backgroud, face_compare, scrapingCR, generacion_imagenes
+from models.validations import Token, TokenData, User, ImgBase64, FaceIDResponse, FaceIDInput
+from helpers import validate_user_login, user_authentication, id_image_enhacer, id_remove_backgroud, face_compare
 
 
 
@@ -57,22 +59,22 @@ async def faceid_match(images: FaceIDInput, authenticate: TokenData = Depends(us
     return face_compare(images.person_1, images.person_2)
 
 # CR Site web scraper
-@app.get(
-    "/cridscraper/{cedula}",
-    tags=["CR Site web scraper"],
-    summary="Scrape CR site and return all the data",
-    response_model=CrIdScraperResponse
-    )
-async def cr_scraper(cedula: str, authenticate: TokenData = Depends(user_authentication)):
-    return scrapingCR(cedula)
+# @app.get(
+#     "/cridscraper/{cedula}",
+#     tags=["CR Site web scraper"],
+#     summary="Scrape CR site and return all the data",
+#     response_model=CrIdScraperResponse
+#     )
+# async def cr_scraper(cedula: str, authenticate: TokenData = Depends(user_authentication)):
+#     return scrapingCR(cedula)
 
 
 # Generate images
-@app.get(
-    "/generateimages/{tema}",
-    tags=["Image generation"],
-    summary="Generate images based on the theme",
-    response_model=ImageResponse
-    )
-async def generate_images(tema: ImageCategory, authenticate: TokenData = Depends(user_authentication)):
-    return generacion_imagenes(tema)
+# @app.get(
+#     "/generateimages/{tema}",
+#     tags=["Image generation"],
+#     summary="Generate images based on the theme",
+#     response_model=ImageResponse
+#     )
+# async def generate_images(tema: ImageCategory, authenticate: TokenData = Depends(user_authentication)):
+#     return generacion_imagenes(tema)
